@@ -1,0 +1,11 @@
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+/bumbol_app/nbproject/private/
+/bumbol_app/nbproject/private
+/nbproject/private
+.DS_Store
+nbproject
+*.pyc

@@ -1,0 +1,145 @@
+{% extends 'bid_base.html' %}
+
+
+{# Head #}
+{% block head %}
+    <title>Invitation to Bid</title>
+{% endblock %}
+
+
+{% block nav %}
+   {# "Page Nav" #}
+    
+{% endblock %}
+
+{% block content %}
+    {% load bbcode %}
+    
+    {# Page Heading #}
+        <div class="row bid margin-top-10">
+            <div class=" col-lg-12">
+                <h4>Invitation to Bid - {{ project_name }}</h4>
+                <strong>{{ company_name }}</strong>
+            </div>
+        </div>
+    {# End Page Heading #}
+    
+    {# Project Description #}
+    {% if project_description %}
+    <div class="row bid" style="margin-top:10px;">
+        <div class=" col-lg-12">
+            <p>
+                <strong>Project Description:</strong><br>
+                {% bbcode project_description %}
+            </p>
+        </div>
+    </div>
+    {% endif %}
+    
+    {# Project Address #}
+    {% if street_address %}
+    <div class="row bid">
+        <div class=" col-lg-12">
+            <p>
+                <strong>Project Address:</strong><br>
+                {{ street_address }}, {{ city }}, {{ state }} {{ zipcode }}
+            </p>
+        </div>
+    </div>
+    {% endif %}
+    
+    {# Deadline #}
+    {% if deadline %}
+    <div class="row bid">
+        <div class=" col-lg-12">
+            <p>
+                <strong>Bid Deadline:</strong> <br>
+                {{ deadline }}
+            </p>
+        </div>
+    </div>
+    {% endif %}
+    
+    {# Submit instructions #}
+    {% if submit_instructions %}
+    <div class="row bid">
+        <div class=" col-lg-12">
+            <p>
+                <strong>Receipt of Bids:</strong><br> 
+                {% bbcode submit_instructions %}
+            </p>
+        </div>
+    </div>
+    {% endif %}
+    
+    {# Requirements #}
+    {% if requirements %}
+    <div class="row bid">
+        <div class=" col-lg-12">
+            <p>
+                <strong>Requirements:</strong><br>
+                {% bbcode requirements %}
+            </p>
+        </div>
+    </div>
+    {% endif %}
+    
+    {% if award_description == "1" %}
+    <div class="row bid">
+        <div class=" col-lg-12">
+            <p>
+                <strong>Bid Award:</strong><br>
+                {% bbcode award_description %}
+            </p>
+        </div>
+    </div>
+    {% endif %}
+    
+    {# RFI #}
+    {% if rfi_instructions %}
+    <div class="row bid">
+        <div class=" col-lg-12">
+            <p>
+                <strong>Requests for information:</strong><br>
+                {% bbcode rfi_instructions %}
+            </p>
+        </div>
+    </div>
+    {% endif %}
+    
+    {# Contractor #}
+    {% if contractor_information %}
+    <div class="row bid">
+        <div class=" col-lg-12">
+            <p>
+                <strong>General Contractor:</strong><br>
+                {% bbcode contractor_information %}
+            </p>
+        </div>
+    </div>
+    {% endif %}
+    
+    {# Files List #}
+    {% if files %}
+    <div class="row bid">
+            <div class=" col-lg-12">
+                <p>
+                    <strong>Project Documents:</strong><br> 
+                    The following files are available for download:
+                </p>
+                <ul>
+                    {% for file in files %}
+                    <li style="margin-bottom:10px;">
+                        <a href="{{ file.url }}" target="_blank">{{ file.fileName }}</a>  - ({{ file.updated_at }})<br>
+                        {% if file.comments %}
+                        {{ file.comments }}
+                        {% endif %}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+    </div>
+    {% endif %}
+    
+    
+{% endblock %}

@@ -1,0 +1,6 @@
+Django==1.9.2
+django-elasticache==0.0.3
+pylibmc==1.5.0
+requests==2.9.1
+six==1.10.0
+wheel==0.26.0

@@ -1,0 +1,47 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <!-- Bootstrap Style -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <!-- Default Style -->
+        <link rel="stylesheet" href="http://media.bumbol.com/web/default.css">
+        <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <!-- BootStrap -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        
+        {% block head %}
+        {% endblock %}
+        
+    </head>
+    <body>
+        <!-- Header -->
+        <div class="container">
+            <div class="header clearfix">
+                <h3 class="text-muted">
+                    {% if logo_key %}
+                    <img src="{{ bucket }}{{ logo_key }}" class="logo" />
+                    {% endif %}
+                </h3>
+                {% block nav %}
+                {% endblock %}
+                
+            </div>
+
+            <!-- Content -->
+            {% block content %}
+            {% endblock %}
+            
+            <!-- Footer -->
+            <footer class="footer">
+                <p>&copy; {{ company_name }} &nbsp; 2016</p>
+                <p>Website powered by <a href="http://bumbol.com">Bumbol.com</a></p>
+            </footer>
+
+        </div> <!-- /container -->
+    </body>
+    <!-- {% now "jS F Y H:i" %} --> 
+</html>
